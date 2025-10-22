@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Task Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type=text] {
+            padding: 10px;
+            width: 60%;
+        }
+        button {
+            padding: 10px;
+            margin-left: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>🗓️ Daily Task Tracker</h1>
+    <form method="POST" action="/add">
+        <input type="text" name="title" placeholder="Enter a task..." required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li class="{{ 'completed' if task[2] else '' }}">
+                {{ task[1] }}
+                {% if not task[2] %}
+                    <a href="/complete/{{ task[0] }}">✅</a>
+                {% endif %}
+                <a href="/delete/{{ task[0] }}">🗑️</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
