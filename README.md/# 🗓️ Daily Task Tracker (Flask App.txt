@@ -1,0 +1,15 @@
+# 🗓️ Daily Task Tracker (Flask App)
+
+### 👩‍💻 Description
+A simple Flask web app to add, mark, and delete daily tasks.
+
+### 🚀 Features
+- Add a new task  
+- Mark tasks as completed  
+- Delete tasks  
+- Stores data in SQLite  
+
+### ⚙️ How to Run Locally
+```bash
+pip install -r requirements.txt
+python app.py
